@@ -4,9 +4,6 @@ from src.ising.dataset import generate_snapshot_dataset
 
 
 def main():
-    output_path = Path("data/processed/ising_snapshots.npz")
-    output_path.parent.mkdir(parents=True, exist_ok=True)
-
     X, y, T = generate_snapshot_dataset(
         L=16,
         temperatures=np.linspace(1.0, 4.0, 80),
@@ -16,7 +13,7 @@ def main():
         seed=42,
     )
 
-    np.savez("data/processed/ising_snapshots.npz", X, y, T)
+    np.savez("data/ising_snapshots.npz", X, y, T)
 
 if __name__ == "__main__":
     main()
